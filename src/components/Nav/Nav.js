@@ -8,11 +8,15 @@ export default class Nav extends Component {
         <nav>
           <span className="NavLink">
             {" "}
-            <Link to="/">Home</Link>
+            <Link to="/">Home </Link>-
           </span>
           <span className="NavLink">
             {" "}
-            <Link to="/NoteList">Notes</Link>
+            <Link to="/NoteList">Notes</Link>-
+          </span>
+          <span className="NavLink">
+            {" "}
+            <Link to="/Feed">Feed</Link>
           </span>
         </nav>
       </>

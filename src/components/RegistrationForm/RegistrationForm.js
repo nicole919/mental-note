@@ -46,6 +46,10 @@ export default class RegistrationForm extends Component {
               id="RegistrationForm-password"
             ></Input>
           </div>
+          <div className="about">
+            <label htmlFor="RegistrationForm-about">Interests</label>
+            <Input name="about" id="RegistrationForm-about"></Input>
+          </div>
           <Link to="/NoteList">Register</Link>
         </form>
       </div>

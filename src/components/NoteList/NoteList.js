@@ -6,7 +6,7 @@ export default class NoteList extends Component {
   render() {
     return (
       <div className="NoteList">
-        <h1>mental notes</h1>
+        <h1>Users Mental Notes</h1>
         <Link to="/CreateNote">New note</Link>| |
         <Link to="/CreateList">New Category</Link>
         <div class="categories">

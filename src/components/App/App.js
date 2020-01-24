@@ -6,6 +6,8 @@ import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import LoginForm from "../LoginForm/LoginForm";
 import CreateNote from "../CreateNote/CreateNote";
 import CreateList from "../CreateList/CreateList";
+import Profile from "../Profile/Profile";
+import Feed from "../Feed/Feed";
 import Nav from "../Nav/Nav";
 import "./App.css";
 
@@ -25,6 +27,8 @@ export default class App extends Component {
             <Route path="/notelist" component={NoteList} />
             <Route path="/createnote" component={CreateNote} />
             <Route path="/createlist" component={CreateList} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/feed" component={Feed} />
           </Switch>
         </main>
       </div>

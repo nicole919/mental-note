@@ -7,7 +7,7 @@ export default class NewItemAteForm extends Component {
   render() {
     return (
       <div>
-        <h1>add Category</h1>
+        <h1>add category</h1>
         <form className="CreateListForm">
           <div className="text">
             <div className="name">
