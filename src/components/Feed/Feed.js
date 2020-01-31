@@ -11,7 +11,7 @@ export default class Feed extends Component {
             <Link to="/profile">user</Link> added "fairy tale" to "shows"
           </p>
           <p>
-            <Link to="/profile">user</Link> added "some indie shit" to "music"
+            <Link to="/profile">user</Link> added "some neat band" to "music"
           </p>
           <p>
             <Link to="/profile">user</Link> suggested "mickey mouse" to "shows"

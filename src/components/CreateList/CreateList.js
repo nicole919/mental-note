@@ -1,14 +1,54 @@
 import React, { Component } from "react";
 import { Input } from "../Utils";
-import { Link } from "react-router-dom";
+import config from "../../config";
 import "./CreateList.css";
 
-export default class NewItemAteForm extends Component {
+export default class CreateList extends Component {
+  state = {
+    name: ""
+  };
+
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { name } = this.state;
+    const category = {
+      category_name: name
+    };
+
+    fetch(`${config.API_ENDPOINT}/categories`, {
+      method: "POST",
+      body: JSON.stringify(category),
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(async res => {
+        if (!res.ok) {
+          const err = await res.json();
+          console.log(`Error is: ${err}`);
+          throw err;
+        } else {
+          this.goBack();
+        }
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+  };
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     return (
       <div>
         <h1>add category</h1>
-        <form className="CreateListForm">
+        <form className="CreateListForm" onSubmit={this.handleSubmit}>
           <div className="text">
             <div className="name">
               <label htmlFor="CreateListForm">
@@ -17,10 +57,11 @@ export default class NewItemAteForm extends Component {
               <Input
                 name="name"
                 type="text"
-                //required
+                required
                 id="CreateListForm_name"
+                onChange={this.onChange}
               ></Input>
-              <Link to="/NoteList">Add Category</Link>
+              <button type="submit">Create</button>
             </div>
           </div>
         </form>

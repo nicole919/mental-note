@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { isLoggedIn } from "../../lib/auth";
+import Logout from "../Logout/Logout";
 import "./Homepage.css";
 
 export default class Homepage extends Component {
@@ -29,10 +31,17 @@ export default class Homepage extends Component {
             know will just *love* them. :)
           </p>
         </section>
-        <section>
-          <Link to="/RegistrationForm">Sign Up</Link>| |
-          <Link to="LoginForm">Login</Link>
-        </section>
+        {!isLoggedIn() && (
+          <section>
+            <Link to="/RegistrationForm">Sign Up</Link>| |
+            <Link to="LoginForm">Login</Link>
+          </section>
+        )}
+        {isLoggedIn() && (
+          <section>
+            <Link to="Logout">Logout</Link>
+          </section>
+        )}
       </div>
     );
   }

@@ -9,6 +9,7 @@ import CreateList from "../CreateList/CreateList";
 import Profile from "../Profile/Profile";
 import Feed from "../Feed/Feed";
 import Nav from "../Nav/Nav";
+import Logout from "../Logout/Logout";
 import "./App.css";
 
 export default class App extends Component {
@@ -29,6 +30,7 @@ export default class App extends Component {
             <Route path="/createlist" component={CreateList} />
             <Route path="/profile" component={Profile} />
             <Route path="/feed" component={Feed} />
+            <Route path="/logout" component={Logout} />
           </Switch>
         </main>
       </div>
