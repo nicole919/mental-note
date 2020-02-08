@@ -66,7 +66,7 @@ export default class LoginForm extends Component {
           onSubmit={event => this.handleSubmit(event)}
         >
           <div className="email">
-            <label htmlFor="LoginForm-email">Email </label>
+            <label htmlFor="LoginForm-email">username </label>
             <Input
               required
               name="user_name"
@@ -75,7 +75,7 @@ export default class LoginForm extends Component {
             ></Input>
           </div>
           <div className="password">
-            <label htmlFor="LoginForm-password">Password </label>
+            <label htmlFor="LoginForm-password">password </label>
             <Input
               required
               name="password"

@@ -1,21 +1,32 @@
 import React, { Component } from "react";
 import { Textarea, Input } from "../Utils";
 import { Redirect } from "react-router-dom";
+import { getAuthToken, getUserId } from "../../lib/auth";
 import config from "../../config";
+import ApiContext from "../../ApiContext";
 import "./CreateNote.css";
 
 export default class CreateNote extends Component {
-  state = {
-    title: "",
-    category_id: "",
-    whereat: "",
-    comments: "",
-    formValid: false,
-    titleValid: false,
-    validationMessage: null,
-    categories: [],
-    routeToNoteList: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      category_id: "",
+      whereat: "",
+      comments: "",
+      formValid: false,
+      titleValid: false,
+      validationMessage: null,
+      categories: [],
+      routeToNoteList: false
+    };
+  }
+
+  static defaultProps = {
+    onAddNote: () => {}
   };
+
+  static contextType = ApiContext;
 
   fetchCategories() {
     fetch(`${config.API_ENDPOINT}/categories`, {
@@ -42,9 +53,7 @@ export default class CreateNote extends Component {
   componentDidMount() {
     this.fetchCategories();
   }
-  goBack = () => {
-    this.props.history.goBack();
-  };
+
   updateFormEntry(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
@@ -83,7 +92,7 @@ export default class CreateNote extends Component {
     }
   }
 
-  handleSubmit = event => {
+  handleSubmit(event) {
     event.preventDefault();
     const { title, category_id, whereat, comments } = this.state;
     const note = {
@@ -92,14 +101,18 @@ export default class CreateNote extends Component {
       whereat: whereat,
       comments: comments
     };
-    this.setState({ routeToNoteList: true });
+    if (this.props.match.params.id) {
+      note.user_id = this.props.match.params.id;
+      note.suggesting_user_id = getUserId().user_id;
+    }
+    console.log(this.props);
 
     fetch(`${config.API_ENDPOINT}/notes`, {
       method: "POST",
       body: JSON.stringify(note),
       headers: {
         "content-type": "application/json",
-        bearer: "authToken"
+        authorization: `Bearer ${getAuthToken()}`
       }
     })
       .then(async res => {
@@ -112,18 +125,23 @@ export default class CreateNote extends Component {
       })
       .then(data => {
         this.context.addNote(data);
+        console.log(data);
+        this.setState({ routeToNoteList: true });
       })
       .catch(error => {
         this.setState({ error });
       });
-  };
+  }
 
   render() {
     return (
       <>
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}
         <h1>add new note</h1>
-        <form className="CreateNoteForm" onSubmit={this.handleSubmit}>
+        <form
+          className="CreateNoteForm"
+          onSubmit={event => this.handleSubmit(event)}
+        >
           <div className="text">
             <div className="name">
               <label htmlFor="CreateNoteForm-title">Title {/*required*/}</label>
@@ -137,7 +155,12 @@ export default class CreateNote extends Component {
             </div>
             <div className="category">
               <label htmlFor="category">category</label>
-              <select id="category-select">
+              <select
+                id="category-select"
+                name="category_id"
+                value={this.state.category_id}
+                onChange={event => this.updateFormEntry(event)}
+              >
                 <option value={null}>...</option>
                 {this.state.categories.map(category => (
                   <option
@@ -150,17 +173,21 @@ export default class CreateNote extends Component {
               </select>
             </div>
           </div>
-          <div className="when">
-            <label htmlFor="CreateNoteForm-where">Where can you find it?</label>
+          <div className="where">
+            <label htmlFor="CreateNoteForm-where">
+              Where can you find it? (not required)
+            </label>
             <Input
-              name="when"
+              name="whereat"
               type="text"
               id="CreateNoteForm-where"
               onChange={event => this.updateFormEntry(event)}
             ></Input>
           </div>
           <div className="comments">
-            <label htmlFor="CreateNoteForm-comments">Additional notes</label>
+            <label htmlFor="CreateNoteForm-comments">
+              Additional notes (not required)
+            </label>
             <Textarea
               name="comments"
               type="text"
@@ -168,10 +195,10 @@ export default class CreateNote extends Component {
               onChange={event => this.updateFormEntry(event)}
             ></Textarea>
           </div>
+          <button type="submit" className="button">
+            save note
+          </button>
         </form>
-        <button type="submit" className="button">
-          save note
-        </button>
       </>
     );
   }

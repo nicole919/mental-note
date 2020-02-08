@@ -26,7 +26,7 @@ export default class RegistrationForm extends Component {
           </div>
           <div className="email">
             <label htmlFor="RegistaionForm-email">
-              Email <Required />
+              username <Required />
             </label>
             <Input
               name="email"

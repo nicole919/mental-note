@@ -26,9 +26,12 @@ export default class App extends Component {
             <Route path="/registrationform" component={RegistrationForm} />
             <Route path="/loginform" component={LoginForm} />
             <Route path="/notelist" component={NoteList} />
-            <Route path="/createnote" component={CreateNote} />
+            <Route
+              path={["/createnote/:id", "/createnote"]}
+              component={CreateNote}
+            />
             <Route path="/createlist" component={CreateList} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/user/:id" component={Profile} />
             <Route path="/feed" component={Feed} />
             <Route path="/logout" component={Logout} />
           </Switch>
