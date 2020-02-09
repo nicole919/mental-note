@@ -26,7 +26,7 @@ export default class RegistrationForm extends Component {
           </div>
           <div className="email">
             <label htmlFor="RegistaionForm-email">
-              Email <Required />
+              username <Required />
             </label>
             <Input
               name="email"
@@ -45,6 +45,10 @@ export default class RegistrationForm extends Component {
               required
               id="RegistrationForm-password"
             ></Input>
+          </div>
+          <div className="about">
+            <label htmlFor="RegistrationForm-about">Interests</label>
+            <Input name="about" id="RegistrationForm-about"></Input>
           </div>
           <Link to="/NoteList">Register</Link>
         </form>
