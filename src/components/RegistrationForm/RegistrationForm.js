@@ -1,14 +1,61 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Required, Input } from "../Utils";
+import { Redirect } from "react-router-dom";
+import config from "../../config";
+import { isLoggedIn } from "../../lib/auth";
 import "./RegistrationForm.css";
 
 export default class RegistrationForm extends Component {
+  state = {
+    user_name: "",
+    password: "",
+    interests: "",
+    isLoggedIn: false
+  };
+  constructor(props) {
+    super(props);
+    if (isLoggedIn()) {
+      this.state.isLoggedIn = true;
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault();
+
+    fetch(`${config.API_ENDPOINT}/users`, {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(async res => {
+        if (!res.ok) {
+          const err = await res.json();
+          console.log(`Error is: ${err}`);
+          throw err;
+        }
+        return res.json();
+      })
+      .then(data => {
+        localStorage.setItem("token", data.authToken);
+        this.setState({ isLoggedIn: true });
+        console.log(this.props);
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
   };
 
+  onChange = e => {
+    console.log(e.target.name);
+    this.setState({ [e.target.name]: e.target.value });
+  };
   render() {
+    if (this.state.isLoggedIn) {
+      return <Redirect to="/notes" />;
+    }
+
     return (
       <div>
         <h1>sign up for mental note</h1>
@@ -18,21 +65,11 @@ export default class RegistrationForm extends Component {
               Name <Required />
             </label>
             <Input
-              name="name"
+              name="user_name"
+              onChange={this.onChange}
               type="text"
               required
               id="RegistrationForm-name"
-            ></Input>
-          </div>
-          <div className="email">
-            <label htmlFor="RegistaionForm-email">
-              username <Required />
-            </label>
-            <Input
-              name="email"
-              type="text"
-              required
-              id="RegistrationForm-email"
             ></Input>
           </div>
           <div className="password">
@@ -42,15 +79,21 @@ export default class RegistrationForm extends Component {
             <Input
               name="password"
               type="password"
+              onChange={this.onChange}
               required
               id="RegistrationForm-password"
             ></Input>
           </div>
-          <div className="about">
-            <label htmlFor="RegistrationForm-about">Interests</label>
-            <Input name="about" id="RegistrationForm-about"></Input>
+          <div className="interests">
+            <label htmlFor="RegistrationForm-interests">Interests</label>
+            <Input
+              name="interests"
+              type="text"
+              id="RegistrationForm-interests"
+              onChange={this.onChange}
+            ></Input>
           </div>
-          <Link to="/NoteList">Register</Link>
+          <button type="submit">register</button>
         </form>
       </div>
     );
