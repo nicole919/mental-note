@@ -7,16 +7,18 @@ const FeedNote = props => {
   if (props.note.suggesting_user_id) {
     return (
       <p>
-        {props.note.suggesting_user_name} suggested
-        {props.note.title} to {props.note.category_name} for{" "}
-        {props.note.user_name}
+        <Link to={`/user/${props.note.suggesting_user_id}`}>
+          {props.note.suggesting_user_name}
+        </Link>{" "}
+        suggested {props.note.title} to {props.note.category_name} for{" "}
+        <Link to={`/user/${props.note.user_id}`}>{props.note.user_name}</Link>
       </p>
     );
   } else {
     return (
       <p>
-        {props.note.user_name} added {props.note.title} to{" "}
-        {props.note.category_name}
+        <Link to={`/user/${props.note.user_id}`}>{props.note.user_name}</Link>{" "}
+        added {props.note.title} to {props.note.category_name}
       </p>
     );
   }

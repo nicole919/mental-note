@@ -22,7 +22,7 @@ export default class NoteList extends Component {
   static contextType = ApiContext;
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/notes`, {
+    fetch(`${config.API_ENDPOINT}/notes?userOnly=true`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

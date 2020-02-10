@@ -53,7 +53,7 @@ export default class RegistrationForm extends Component {
   };
   render() {
     if (this.state.isLoggedIn) {
-      return <Redirect to="/notes" />;
+      return <Redirect to="/NoteList" />;
     }
 
     return (
