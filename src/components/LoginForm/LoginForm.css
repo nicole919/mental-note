@@ -1,0 +1,172 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e7dfdb;
+  margin: 0em 1em 2em 0.8em;
+  padding: 2em 4em 10em 4em;
+  height: 70vh;
+  width: 95%;
+  border-radius: 15px;
+}
+
+.email {
+  width: 100%;
+}
+.password {
+  width: 100%;
+}
+
+.Input {
+  color: black;
+  width: 15em;
+  height: 3em;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1px solid black;
+}
+
+#category-select {
+  width: 11em;
+  margin-left: 3px;
+}
+
+.comments {
+  display: none;
+}
+
+button {
+  display: block;
+  padding: 10px 30px;
+  border: none;
+  width: 170px;
+  background: none;
+  color: black;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+  border: 3px solid #ef8b80;
+  font-family: "Poppins", sans-serif;
+  background-color: #ef8b80;
+}
+
+@media (min-width: 1200px) {
+  .Login {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    color: white;
+    height: 100vh;
+  }
+
+  .LoginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e7dfdb;
+    margin: 4em 6em 2em 0;
+    padding: 2em 4em 10em 4em;
+    height: 70vh;
+    width: 60%;
+    border-radius: 15px;
+  }
+
+  .email {
+    width: 100%;
+  }
+  .password {
+    width: 100%;
+  }
+  .WelcomeBack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    padding: 2em 8em 8em 8em;
+  }
+
+  .Input {
+    color: black;
+    width: 15em;
+    height: 3em;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid black;
+  }
+
+  #category-select {
+    width: 11em;
+    margin-left: 3px;
+  }
+
+  .comments {
+    display: none;
+  }
+
+  button {
+    display: block;
+    padding: 10px 30px;
+    border: none;
+    width: 170px;
+    background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+    border: 3px solid #ef8b80;
+    font-family: "Poppins", sans-serif;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: -15px;
+    overflow: hidden;
+    -webkit-transition: border-color 0.3s, color 0.3s;
+    transition: border-color 0.3s, color 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  button:focus {
+    outline: none;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: #ef8b80;
+    z-index: -1;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s,
+      background-color 0.3s;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+  }
+  button:hover {
+    color: black;
+    border-color: #ef8b80;
+    cursor: pointer;
+  }
+  button:hover::before {
+    opacity: 1;
+    background-color: #ef8b80;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import config from "../../config";
+import "./Note.css";
 
 export default class Note extends Component {
   handleClickDelete(note_id) {
@@ -21,7 +22,7 @@ export default class Note extends Component {
     if (!this.props.whereat) {
       return null;
     } else {
-      return <p> where can you find it? {this.props.whereat}</p>;
+      return <p> Where is it? {this.props.whereat}</p>;
     }
   }
   renderComments() {
@@ -43,11 +44,14 @@ export default class Note extends Component {
     return (
       <div className="Note-Container">
         <section className="Note">
-          {this.props.title && <h2>{this.props.title}</h2>}{" "}
-          {this.renderWhereAt()}
-          {this.renderComments()}
-          <p>{this.renderSuggestingUserId}</p>
-          <div>
+          <div className="NoteSection">
+            {this.props.title && (
+              <h2 className="noteHeader">{this.props.title}</h2>
+            )}{" "}
+            {this.renderWhereAt()}
+            {this.renderComments()}
+            <p>{this.renderSuggestingUserId}</p>
+            <br />
             <button
               className="Note-delete"
               type="button"

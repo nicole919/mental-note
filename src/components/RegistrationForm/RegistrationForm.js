@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Required, Input } from "../Utils";
+import { Input } from "../Utils";
 import { Redirect } from "react-router-dom";
 import config from "../../config";
 import { isLoggedIn } from "../../lib/auth";
@@ -57,14 +57,11 @@ export default class RegistrationForm extends Component {
     }
 
     return (
-      <div>
-        <h1>sign up for mental note</h1>
+      <div className="Register">
         <form className="RegistrationForm" onSubmit={this.handleSubmit}>
           <div className="name">
-            <label htmlFor="RegistrationForm-name">
-              Name <Required />
-            </label>
             <Input
+              placeholder="desired user name"
               name="user_name"
               onChange={this.onChange}
               type="text"
@@ -73,10 +70,8 @@ export default class RegistrationForm extends Component {
             ></Input>
           </div>
           <div className="password">
-            <label htmlFor="RegistrationForm-password">
-              Password <Required />
-            </label>
             <Input
+              placeholder="password"
               name="password"
               type="password"
               onChange={this.onChange}
@@ -85,8 +80,8 @@ export default class RegistrationForm extends Component {
             ></Input>
           </div>
           <div className="interests">
-            <label htmlFor="RegistrationForm-interests">Interests</label>
             <Input
+              placeholder="add your interests"
               name="interests"
               type="text"
               id="RegistrationForm-interests"
@@ -95,6 +90,14 @@ export default class RegistrationForm extends Component {
           </div>
           <button type="submit">register</button>
         </form>
+        <div className="SignUp">
+          <h1 className="formTitle">Sign Up for Mental Note</h1>
+          <p className="formDescriptionParagraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
+            faucibus nisl tincidunt eget nullam.{" "}
+          </p>
+        </div>
       </div>
     );
   }

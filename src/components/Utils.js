@@ -1,5 +1,8 @@
 import React from "react";
 
+export const getNotesForCategories = (notes = [], category_id) =>
+  !category_id ? notes : notes.filter(note => note.category_id === category_id);
+
 export function Button({ className, ...props }) {
   return <button className={["Button", className].join(" ")} {...props} />;
 }

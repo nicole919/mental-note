@@ -1,0 +1,92 @@
+.Register {
+  display: flex;
+  flex-direction: column-reverse;
+  color: white;
+  width: 100%;
+}
+
+.RegistrationForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e7dfdb;
+  margin: 0em 0em 0em 1em;
+  padding: 2em 4em 10em 4em;
+  height: 70vh;
+  width: 90%;
+  border-radius: 15px;
+}
+
+.interests {
+  width: 100%;
+}
+.Input {
+  color: black;
+  width: 100%;
+  height: 2em;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1px solid black;
+}
+
+button {
+  display: block;
+  padding: 10px 30px;
+  border: none;
+  width: 170px;
+  background: none;
+  color: black;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+  border: 3px solid #ef8b80;
+  font-family: "Poppins", sans-serif;
+  background-color: #ef8b80;
+}
+
+@media (min-width: 1200px) {
+  .Register {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    background-color: #a4aeb1;
+    height: 100vh;
+  }
+
+  .RegistrationForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e7dfdb;
+    margin: 4em 0em 2em 14em;
+    padding: 2em 4em 10em 4em;
+    height: 70vh;
+    width: 60%;
+    border-radius: 15px;
+  }
+
+  .name {
+    width: 80%;
+  }
+  .interests {
+    width: 80%;
+  }
+  .Input {
+    color: black;
+    width: 100%;
+    height: 2em;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid black;
+  }
+  .SignUp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 8em 2em 0;
+    padding: 2em 4em 10em 4em;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./Nav.css";
 
 export default class Nav extends Component {
   render() {
@@ -8,11 +9,11 @@ export default class Nav extends Component {
         <nav>
           <span className="NavLink">
             {" "}
-            <Link to="/">Home </Link>-
+            <Link to="/">Home </Link>
           </span>
           <span className="NavLink">
             {" "}
-            <Link to="/NoteList">Notes</Link>-
+            <Link to="/NoteList">Notes</Link>
           </span>
           <span className="NavLink">
             {" "}

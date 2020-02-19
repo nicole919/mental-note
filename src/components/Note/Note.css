@@ -1,0 +1,41 @@
+.Note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #e7dfdb;
+  opacity: 90%;
+  width: 90%;
+  height: 0;
+  margin-top: 1em;
+  padding: 7em 3em 8em 4em;
+}
+
+@media (min-width: 1200px) {
+  .Note {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #e7dfdb;
+    opacity: 90%;
+    width: 90%;
+    height: 0;
+    margin-top: 1em;
+    padding: 5em 3em 7em 3em;
+  }
+
+  .noteHeader {
+    color: black;
+  }
+  .Note:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .NoteSection h2 {
+    font-size: 1.5em;
+  }
+}

@@ -135,17 +135,24 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <>
+      <div className="NoteCreate">
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}
-        <h1>add new note</h1>
+        <div className="CreateANote">
+          <h1 className="formPageHeader">Create a note</h1>{" "}
+          <p className="formDescriptionParagraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
+            faucibus nisl tincidunt eget nullam.{" "}
+          </p>
+        </div>
         <form
           className="CreateNoteForm"
           onSubmit={event => this.handleSubmit(event)}
         >
           <div className="text">
             <div className="name">
-              <label htmlFor="CreateNoteForm-title">Title {/*required*/}</label>
               <Input
+                placeholder="title"
                 name="title"
                 type="text"
                 required
@@ -174,10 +181,8 @@ export default class CreateNote extends Component {
             </div>
           </div>
           <div className="where">
-            <label htmlFor="CreateNoteForm-where">
-              Where can you find it? (not required)
-            </label>
             <Input
+              placeholder="where can you find it?"
               name="whereat"
               type="text"
               id="CreateNoteForm-where"
@@ -185,10 +190,8 @@ export default class CreateNote extends Component {
             ></Input>
           </div>
           <div className="comments">
-            <label htmlFor="CreateNoteForm-comments">
-              Additional notes (not required)
-            </label>
             <Textarea
+              placeholder="anything to add?"
               name="comments"
               type="text"
               id="CreateNoteForm-comments"
@@ -199,7 +202,7 @@ export default class CreateNote extends Component {
             save note
           </button>
         </form>
-      </>
+      </div>
     );
   }
 }
