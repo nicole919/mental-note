@@ -18,6 +18,11 @@ Keep track of all your notes and seperate them by category.
 Recommend things to other users and have it show up on their list.
 ![third](screenshots/screenshot3.png)
 
+## Logging in
+
+You may create a username and password for Mental Note, however, if you would prefer not to you can use:
+username: squirtle password: 1234abcd
+
 ## Technology Used
 
 Front-end:

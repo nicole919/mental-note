@@ -91,9 +91,9 @@ export default class RegistrationForm extends Component {
         <div className="SignUp">
           <h1 className="formTitle">Sign Up for Mental Note</h1>
           <p className="formDescriptionParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            faucibus nisl tincidunt eget nullam.{" "}
+            Signing up is easy! Just choose your desired user name, enter a
+            password, and put a few of your interests. Other users will be able
+            to see your interests in your profile.{" "}
           </p>
         </div>
       </div>

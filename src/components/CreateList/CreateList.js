@@ -65,9 +65,8 @@ export default class CreateList extends Component {
         <div className="CreateACategory">
           <h1 className="formTitle">Add Category</h1>
           <p className="formDescriptionParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            faucibus nisl tincidunt eget nullam.{" "}
+            Want a category we haven't thought of yet? No problem! Add your own
+            to make your Mental Notes the best for you!{" "}
           </p>
         </div>
       </div>

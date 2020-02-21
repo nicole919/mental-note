@@ -270,6 +270,11 @@ footer {
     -ms-transform: scale(1.05);
     transform: scale(1.05);
   }
+
+  .LoginLogout {
+    padding: 0 30em;
+  }
+
   .Iam {
     padding: 1em 5em;
     font: normal 40px/50px Montserrat, sans-serif;

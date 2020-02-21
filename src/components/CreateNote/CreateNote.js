@@ -137,7 +137,9 @@ export default class CreateNote extends Component {
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}
         <div className="CreateANote">
           <h1 className="formPageHeader">Create a note</h1>{" "}
-          <p className="formDescriptionParagraph"> </p>
+          <p className="formDescriptionParagraph">
+            Ready to add something new?{" "}
+          </p>
         </div>
         <form
           className="CreateNoteForm"
