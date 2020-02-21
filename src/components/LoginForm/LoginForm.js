@@ -40,7 +40,6 @@ export default class LoginForm extends Component {
       .then(data => {
         localStorage.setItem("token", data.authToken);
         this.setState({ isLoggedIn: true });
-        console.log(this.props);
       })
       .catch(error => {
         this.setState({ error });
@@ -48,7 +47,6 @@ export default class LoginForm extends Component {
   };
 
   onChange = e => {
-    console.log(e.target.name);
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -58,26 +56,35 @@ export default class LoginForm extends Component {
     }
 
     return (
-      <div>
+      <div className="Login">
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}
-        <h1>login</h1>
+        <div className="WelcomeBack">
+          <h1 className="formTitle">Welcome back!</h1>
+          <p className="formDescriptionParagraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
+            faucibus nisl tincidunt eget nullam.{" "}
+          </p>
+        </div>
         <form
           className="LoginForm"
           onSubmit={event => this.handleSubmit(event)}
         >
           <div className="email">
-            <label htmlFor="LoginForm-email">username </label>
+            <label htmlFor="LoginForm-email"> </label>
             <Input
               required
+              placeholder="username"
               name="user_name"
               onChange={this.onChange}
               id="LoginForm-email"
             ></Input>
           </div>
           <div className="password">
-            <label htmlFor="LoginForm-password">password </label>
+            <label htmlFor="LoginForm-password"></label>
             <Input
               required
+              placeholder="password"
               name="password"
               type="password"
               id="LoginForm-password"

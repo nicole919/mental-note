@@ -105,7 +105,6 @@ export default class CreateNote extends Component {
       note.user_id = this.props.match.params.id;
       note.suggesting_user_id = getUserId().user_id;
     }
-    console.log(this.props);
 
     fetch(`${config.API_ENDPOINT}/notes`, {
       method: "POST",
@@ -125,7 +124,6 @@ export default class CreateNote extends Component {
       })
       .then(data => {
         this.context.addNote(data);
-        console.log(data);
         this.setState({ routeToNoteList: true });
       })
       .catch(error => {
@@ -135,17 +133,20 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <>
+      <div className="NoteCreate">
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}
-        <h1>add new note</h1>
+        <div className="CreateANote">
+          <h1 className="formPageHeader">Create a note</h1>{" "}
+          <p className="formDescriptionParagraph"> </p>
+        </div>
         <form
           className="CreateNoteForm"
           onSubmit={event => this.handleSubmit(event)}
         >
           <div className="text">
             <div className="name">
-              <label htmlFor="CreateNoteForm-title">Title {/*required*/}</label>
               <Input
+                placeholder="title"
                 name="title"
                 type="text"
                 required
@@ -174,10 +175,8 @@ export default class CreateNote extends Component {
             </div>
           </div>
           <div className="where">
-            <label htmlFor="CreateNoteForm-where">
-              Where can you find it? (not required)
-            </label>
             <Input
+              placeholder="where can you find it?"
               name="whereat"
               type="text"
               id="CreateNoteForm-where"
@@ -185,10 +184,8 @@ export default class CreateNote extends Component {
             ></Input>
           </div>
           <div className="comments">
-            <label htmlFor="CreateNoteForm-comments">
-              Additional notes (not required)
-            </label>
             <Textarea
+              placeholder="anything to add?"
               name="comments"
               type="text"
               id="CreateNoteForm-comments"
@@ -199,7 +196,7 @@ export default class CreateNote extends Component {
             save note
           </button>
         </form>
-      </>
+      </div>
     );
   }
 }

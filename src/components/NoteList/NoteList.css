@@ -1,66 +1,115 @@
-* {
-  box-sizing: border-box;
+ul {
+  list-style: none;
+}
+.topLinks {
+  margin: 2em 0 2em 0;
+  padding: 0 3%;
+  display: flex;
+  justify-content: space-around;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  color: #444;
-  text-align: center;
-  line-height: 1.5;
+.NoteList {
+  width: 100%;
+}
+.ListOfNotes {
+  display: flex;
+  flex-direction: column;
 }
 
-nav,
-footer {
-  padding: 1% 0;
-  background-color: #aaa;
+.categoryHeader {
+  display: none;
+}
+.categoryItemContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1em;
+  padding: 0 0.5em;
+  text-transform: lowercase;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
-header {
-  padding: 15px 15px;
-}
-.categories {
-  margin-top: 15px;
-
+.categoryHolder {
   display: flex;
   justify-content: space-between;
+  padding: 0em;
+  overflow: scroll;
 }
 
-/* .lists {
-    padding-top: 20px;
+a {
+  font-size: 1.4em;
+  text-decoration: none;
+  border-bottom: 0.8px solid #ef8b80;
+  box-shadow: inset 0 -2px 0 #ef8b80;
+  color: white;
+}
+@media (min-width: 768px) {
+  .topLinks {
+    padding: 0 23%;
+  }
+
+  .NoteListGrid {
     display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
-  
-  } */
-
-section {
-  min-height: 200px;
-  padding: 30px 15px;
-  background-color: #bbb;
-  margin: 10px;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: repeat(1, 1fr);
+  }
+  .categoryHolder {
+    display: block;
+    margin-left: 3em;
+    overflow: hidden;
+  }
 }
+@media (min-width: 1200px) {
+  .categoryHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0em;
+    overflow: hidden;
+  }
+  .categoryHeader {
+    display: unset;
+  }
+  .topLinks {
+    margin: 4em 0 2em 0;
+    padding: 0 37%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .NoteListGrid {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: repeat(1, 1fr);
+  }
+  .NoteList {
+    width: 98%;
+  }
+  .ListOfNotes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+  }
 
-section:nth-child(even) {
-  background-color: #ddd;
-}
+  .CategoryHolder {
+    grid-row: span 2;
+    text-transform: lowercase;
+  }
 
-p {
-  margin: 0 auto;
-  max-width: 650px;
-}
+  .categoryItemContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+  a {
+    font-size: 1.4em;
+    text-decoration: none;
+    border-bottom: 0.8px solid #ef8b80;
+    box-shadow: inset 0 -2px 0 #ef8b80;
+    color: white;
+    transition: background 0.1s cubic-bezier(0.33, 0.66, 0.66, 1);
+  }
 
-p + p {
-  margin-top: 15px;
-}
-
-button {
-  margin-top: 20px;
+  a:hover {
+    background: #ef8b80;
+  }
 }

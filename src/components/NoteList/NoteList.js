@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Note from "../Note/Note";
 import { getAuthToken } from "../../lib/auth";
 import config from "../../config";
@@ -11,6 +11,7 @@ export default class NoteList extends Component {
     super(props);
     this.state = {
       notes: [],
+      categories: [],
       filteredNotes: [],
       loaded: false
     };
@@ -21,8 +22,35 @@ export default class NoteList extends Component {
 
   static contextType = ApiContext;
 
+  fetchCategories() {
+    fetch(`${config.API_ENDPOINT}/categories`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then(async res => {
+        if (!res.ok) {
+          const err = await res.json();
+          console.log(`Error is: ${err}`);
+          throw err;
+        }
+        return res.json();
+      })
+      .then(data => {
+        this.setState({ categories: data });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+  }
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/notes?userOnly=true`, {
+    let URL = `${config.API_ENDPOINT}/notes?userOnly=true`;
+    if (this.props.match.params.categoryId) {
+      URL += `&category_id=${this.props.match.params.categoryId}`;
+    }
+
+    fetch(URL, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -38,12 +66,12 @@ export default class NoteList extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ notes: data });
       })
       .catch(error => {
         this.setState({ error });
       });
+    this.fetchCategories();
   }
   onNoteDeleted = note_id => {
     const newNotes = this.state.notes.filter(note => {
@@ -55,25 +83,48 @@ export default class NoteList extends Component {
   render() {
     return (
       <div className="NoteList">
-        <h1>my notes</h1>
-        <Link to="/CreateNote">New note</Link>| |
-        <Link to="/CreateList">New Category</Link>
-        <section class="lists">
-          <ul>
-            {this.state.notes.map(note => (
-              <li className="listItemContainer" key={note.id}>
-                <Note
-                  id={note.note_id}
-                  title={note.title}
-                  whereat={note.whereat}
-                  comments={note.comments}
-                  suggestingUser={note.suggestingUser}
-                  onDelete={this.onNoteDeleted}
-                />
+        <section className="topLinks">
+          <Link to="/CreateNote">New note</Link>{" "}
+          <Link to="/CreateList">New Category</Link>
+        </section>
+        <div className="NoteListGrid">
+          <ul className="categoryHolder">
+            <h2 className="categoryHeader" style={{ color: "white" }}>
+              Categories
+            </h2>
+
+            {this.state.categories.map(category => (
+              <li
+                className="categoryItemContainer"
+                key={category.category_id}
+                value={category.category_id}
+              >
+                <NavLink
+                  className="CategoryLink"
+                  to={`/notelist/category/${category.category_id}`}
+                >
+                  {category.category_name}
+                </NavLink>
               </li>
             ))}
           </ul>
-        </section>
+          <section className="lists">
+            <ul className="ListOfNotes">
+              {this.state.notes.map(note => (
+                <li className="listItemContainer" key={note.id}>
+                  <Note
+                    id={note.note_id}
+                    title={note.title}
+                    whereat={note.whereat}
+                    comments={note.comments}
+                    suggestingUser={note.suggestingUser}
+                    onDelete={this.onNoteDeleted}
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
       </div>
     );
   }

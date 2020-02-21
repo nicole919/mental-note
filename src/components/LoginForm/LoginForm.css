@@ -1,0 +1,180 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e7dfdb;
+  margin: 0em 1em 2em 0.8em;
+  padding: 2em 4em 10em 4em;
+  height: 70vh;
+  width: 95%;
+  border-radius: 15px;
+}
+
+.email {
+  width: 100%;
+}
+.password {
+  width: 100%;
+}
+
+.Input {
+  color: black;
+  width: 15em;
+  height: 3em;
+  background-color: transparent;
+  border: 0px;
+  border-radius: 3px;
+  padding: 0em 1em;
+  border: 1px solid black;
+  font-family: "Raleway", sans-serif;
+}
+
+#category-select {
+  width: 11em;
+  margin-left: 3px;
+}
+
+.comments {
+  display: none;
+}
+
+button {
+  display: block;
+  padding: 10px 30px;
+  border: none;
+  width: 170px;
+  background: none;
+  color: black;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+  border: 3px solid #ef8b80;
+  font-family: "Poppins", sans-serif;
+  background-color: none;
+}
+
+@media (min-width: 768px) {
+  .LoginForm {
+    width: 65%;
+    margin: 2em 1em 2em 8em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .LoginForm {
+    width: 45%;
+    height: 42vh;
+    margin: 2em 1em 2em 18em;
+  }
+}
+@media (min-width: 1200px) {
+  .Login {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    color: white;
+    height: 100vh;
+  }
+  .formDescriptionParagraph {
+    display: unset;
+  }
+  .LoginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e7dfdb;
+    margin: 4em 6em 2em 0;
+    padding: 2em 4em 10em 4em;
+    height: 70vh;
+    width: 60%;
+    border-radius: 15px;
+  }
+
+  .email {
+    width: 100%;
+  }
+  .password {
+    width: 100%;
+  }
+  .WelcomeBack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    padding: 2em 8em 8em 8em;
+  }
+
+  #category-select {
+    width: 9em;
+    margin-left: 3px;
+  }
+
+  .comments {
+    display: none;
+  }
+
+  button {
+    display: block;
+    padding: 10px 30px;
+    border: none;
+    width: 170px;
+    background-color: none;
+    color: inherit;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+    border: 3px solid #ef8b80;
+    font-family: "Poppins", sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: -15px;
+    overflow: hidden;
+    -webkit-transition: border-color 0.3s, color 0.3s;
+    transition: border-color 0.3s, color 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  button:focus {
+    outline: none;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: #ef8b80;
+    z-index: -1;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s,
+      background-color 0.3s;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+  }
+  button:hover {
+    color: black;
+    border-color: #ef8b80;
+    cursor: pointer;
+  }
+  button:hover::before {
+    opacity: 1;
+    background-color: #ef8b80;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+}

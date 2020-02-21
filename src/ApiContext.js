@@ -3,7 +3,7 @@ import React from "react";
 export default React.createContext({
   noteList: [],
   toggle: false,
-  API: "http://localhost:8000",
+  API: "https://boiling-tor-85532.herokuapp.com/api",
   addNote: () => {},
   deleteNote: () => {},
   addCategory: () => {},
@@ -11,4 +11,3 @@ export default React.createContext({
   toggleErrors: () => {},
   throwError: () => {}
 });
-//https://boiling-tor-85532.herokuapp.com/api

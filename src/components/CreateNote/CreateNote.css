@@ -1,0 +1,94 @@
+.NoteCreate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.CreateANote {
+  color: white;
+}
+
+.CreateNoteForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e7dfdb;
+  opacity: 0.9;
+  margin: 0em 2em 2em 1em;
+  padding: 2em 2em 15em 2em;
+  height: 70vh;
+  width: 90%;
+  border-radius: 15px;
+}
+
+.name {
+  width: 100%;
+}
+
+.where {
+  width: 100%;
+  margin-top: -2em;
+}
+.category {
+  margin-top: 2em;
+}
+@media (min-width: 728px) {
+  .CreateNoteForm {
+    width: 60%;
+    height: 65vh;
+    margin: 0em 0em 2em 10em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .CreateNoteForm {
+    height: 50vh;
+    margin: 0em 0em 2em 12em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .NoteCreate {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    height: 100vh;
+  }
+
+  .CreateANote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    padding: 2em 6em 8em 8em;
+    color: white;
+  }
+
+  .CreateNoteForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e7dfdb;
+    opacity: 0.9;
+    margin: 6em 4em 2em 4em;
+    padding: 2em 4em 10em 4em;
+    height: 70vh;
+    width: 60%;
+    border-radius: 15px;
+  }
+
+  .name {
+    width: 100%;
+  }
+
+  .where {
+    width: 80%;
+    margin-top: -2em;
+  }
+  .category {
+    margin-top: 2em;
+  }
+}

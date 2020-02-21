@@ -1,0 +1,75 @@
+.CategoryCreate {
+  display: flex;
+  flex-direction: column-reverse;
+  color: white;
+}
+
+.formTitle {
+  padding-top: 15px;
+}
+.formDescriptionParagraph {
+  display: none;
+}
+
+.CreateListForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e7dfdb;
+  margin: 2em 1em 2em 1.2em;
+  padding: 2em 1em 10em 2em;
+  height: 60vh;
+  width: 90%;
+  border-radius: 15px;
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .CreateListForm {
+    width: 60%;
+    margin: 2em 1em 2em 10em;
+  }
+}
+@media (min-width: 1024px) {
+  .CreateListForm {
+    width: 60%;
+    margin: 0em 1em 2em 13em;
+  }
+}
+@media (min-width: 1200px) {
+  .formDescriptionParagraph {
+    display: unset;
+  }
+  .CategoryCreate {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+    height: 100vh;
+  }
+
+  .CreateACategory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    padding: 2em 6em 8em 4em;
+    color: white;
+  }
+
+  .CreateListForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e7dfdb;
+    margin: 6em 4em 2em 9em;
+    padding: 2em 4em 10em 4em;
+    height: 70vh;
+    width: 60%;
+    border-radius: 15px;
+    opacity: 0.9;
+  }
+}

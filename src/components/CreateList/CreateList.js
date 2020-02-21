@@ -46,25 +46,30 @@ export default class CreateList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>add category</h1>
+      <div className="CategoryCreate">
         <form className="CreateListForm" onSubmit={this.handleSubmit}>
           <div className="text">
             <div className="name">
-              <label htmlFor="CreateListForm">
-                Category Name {/*required*/}
-              </label>
               <Input
+                placeholder="category name"
                 name="name"
                 type="text"
                 required
                 id="CreateListForm_name"
                 onChange={this.onChange}
               ></Input>
-              <button type="submit">Create</button>
             </div>
           </div>
+          <button type="submit">Create</button>
         </form>
+        <div className="CreateACategory">
+          <h1 className="formTitle">Add Category</h1>
+          <p className="formDescriptionParagraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
+            faucibus nisl tincidunt eget nullam.{" "}
+          </p>
+        </div>
       </div>
     );
   }
