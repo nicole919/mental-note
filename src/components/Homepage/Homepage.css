@@ -401,4 +401,8 @@ footer {
       top: -200px;
     }
   }
+
+  .LoginLogout {
+    padding: 0 30em;
+  }
 }
