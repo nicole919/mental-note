@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { isLoggedIn } from "../../lib/auth";
+import Heart from "../../heart.svg";
 import "./Homepage.css";
 
 export default class Homepage extends Component {
@@ -28,14 +29,14 @@ export default class Homepage extends Component {
             <h2>Everything is better with a friend!</h2>
             <p>
               Use Mental Note to suggest that cool band to your friend who you
-              know will just *love* them. :)
+              know will just love them.
             </p>
           </section>
         </div>
-        <div class="Iam">
+        <div className="Iam">
           <p>What do you want to add?</p>
           <b>
-            <div class="innerIam">
+            <div className="innerIam">
               shows
               <br />
               movies
@@ -60,6 +61,13 @@ export default class Homepage extends Component {
             <Link to="Logout">Logout</Link>
           </section>
         )}
+        <footer>
+          <p> Mental Note is currently in beta mode</p>
+          <p>
+            Created with <img className="heart" src={Heart} alt="heart" /> by{" "}
+            <a href="https://nicole-portfolio.now.sh/">Nicole</a>
+          </p>
+        </footer>
       </div>
     );
   }

@@ -31,7 +31,10 @@
   height: 3em;
   background-color: transparent;
   border: 0px;
-  border-bottom: 1px solid black;
+  border-radius: 3px;
+  padding: 0em 1em;
+  border: 1px solid black;
+  font-family: "Raleway", sans-serif;
 }
 
 #category-select {
@@ -55,9 +58,23 @@ button {
   z-index: 1;
   border: 3px solid #ef8b80;
   font-family: "Poppins", sans-serif;
-  background-color: #ef8b80;
+  background-color: none;
 }
 
+@media (min-width: 768px) {
+  .LoginForm {
+    width: 65%;
+    margin: 2em 1em 2em 8em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .LoginForm {
+    width: 45%;
+    height: 42vh;
+    margin: 2em 1em 2em 18em;
+  }
+}
 @media (min-width: 1200px) {
   .Login {
     display: grid;
@@ -66,7 +83,9 @@ button {
     color: white;
     height: 100vh;
   }
-
+  .formDescriptionParagraph {
+    display: unset;
+  }
   .LoginForm {
     display: flex;
     flex-direction: column;
@@ -95,17 +114,8 @@ button {
     padding: 2em 8em 8em 8em;
   }
 
-  .Input {
-    color: black;
-    width: 15em;
-    height: 3em;
-    background-color: transparent;
-    border: 0px;
-    border-bottom: 1px solid black;
-  }
-
   #category-select {
-    width: 11em;
+    width: 9em;
     margin-left: 3px;
   }
 
@@ -118,15 +128,13 @@ button {
     padding: 10px 30px;
     border: none;
     width: 170px;
-    background: none;
+    background-color: none;
     color: inherit;
-    vertical-align: middle;
     position: relative;
     text-transform: uppercase;
     z-index: 1;
     border: 3px solid #ef8b80;
     font-family: "Poppins", sans-serif;
-    -webkit-backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
     margin-top: -15px;
     overflow: hidden;

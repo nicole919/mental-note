@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { NavLink, Link, Route } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Note from "../Note/Note";
 import { getAuthToken } from "../../lib/auth";
 import config from "../../config";
 import ApiContext from "../../ApiContext";
-import { getNotesForCategories } from "../Utils";
-import { CSSTransition } from "react-transition-group";
 import "./NoteList.css";
 
 export default class NoteList extends Component {
@@ -68,7 +66,6 @@ export default class NoteList extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ notes: data });
       })
       .catch(error => {
@@ -95,6 +92,7 @@ export default class NoteList extends Component {
             <h2 className="categoryHeader" style={{ color: "white" }}>
               Categories
             </h2>
+
             {this.state.categories.map(category => (
               <li
                 className="categoryItemContainer"

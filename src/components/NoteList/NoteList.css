@@ -24,12 +24,15 @@ ul {
   flex-direction: row;
   justify-content: center;
   margin-top: 1em;
+  padding: 0 0.5em;
+  text-transform: lowercase;
 }
 
 .categoryHolder {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0em;
+  overflow: scroll;
 }
 
 a {
@@ -40,11 +43,32 @@ a {
   color: white;
 }
 @media (min-width: 768px) {
-  .categoryHeader {
-    display: unset;
+  .topLinks {
+    padding: 0 23%;
+  }
+
+  .NoteListGrid {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: repeat(1, 1fr);
+  }
+  .categoryHolder {
+    display: block;
+    margin-left: 3em;
+    overflow: hidden;
   }
 }
 @media (min-width: 1200px) {
+  .categoryHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0em;
+    overflow: hidden;
+  }
+  .categoryHeader {
+    display: unset;
+  }
   .topLinks {
     margin: 4em 0 2em 0;
     padding: 0 37%;
@@ -57,7 +81,7 @@ a {
     grid-template-rows: repeat(1, 1fr);
   }
   .NoteList {
-    width: 100%;
+    width: 98%;
   }
   .ListOfNotes {
     display: grid;

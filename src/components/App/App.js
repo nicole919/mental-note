@@ -10,7 +10,6 @@ import Profile from "../Profile/Profile";
 import Feed from "../Feed/Feed";
 import Nav from "../Nav/Nav";
 import Logout from "../Logout/Logout";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./App.css";
 
 export default class App extends Component {
@@ -21,40 +20,27 @@ export default class App extends Component {
           <Nav />
         </nav>
         <Route
-          render={({ location }) =>
-            console.log(location) || (
-              <main>
-                <TransitionGroup>
-                  <CSSTransition
-                    key={location.key}
-                    timeout={300}
-                    classNames="fade"
-                  >
-                    <Switch location={location}>
-                      <Route exact path="/" component={Homepage} />
-                      <Route
-                        path="/registrationform"
-                        component={RegistrationForm}
-                      />
-                      <Route path="/loginform" component={LoginForm} />
-                      <Route
-                        path={["/notelist/category/:categoryId", "/notelist"]}
-                        component={NoteList}
-                      />
-                      <Route
-                        path={["/createnote/:id", "/createnote"]}
-                        component={CreateNote}
-                      />
-                      <Route path="/createlist" component={CreateList} />
-                      <Route path="/user/:id" component={Profile} />
-                      <Route path="/feed" component={Feed} />
-                      <Route path="/logout" component={Logout} />
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              </main>
-            )
-          }
+          render={({ location }) => (
+            <main>
+              <Switch location={location}>
+                <Route exact path="/" component={Homepage} />
+                <Route path="/registrationform" component={RegistrationForm} />
+                <Route path="/loginform" component={LoginForm} />
+                <Route
+                  path={["/notelist/category/:categoryId", "/notelist"]}
+                  component={NoteList}
+                />
+                <Route
+                  path={["/createnote/:id", "/createnote"]}
+                  component={CreateNote}
+                />
+                <Route path="/createlist" component={CreateList} />
+                <Route path="/user/:id" component={Profile} />
+                <Route path="/feed" component={Feed} />
+                <Route path="/logout" component={Logout} />
+              </Switch>
+            </main>
+          )}
         />{" "}
       </div>
     );

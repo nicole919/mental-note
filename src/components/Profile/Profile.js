@@ -23,7 +23,6 @@ export default class Profile extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ user: data });
       })
       .catch(error => {
@@ -32,9 +31,8 @@ export default class Profile extends Component {
   }
 
   render() {
-    console.log(this.props);
     if (!this.state.user) {
-      return <div>loading...????</div>;
+      return <div>loading...</div>;
     }
     return (
       <div className="Profile">

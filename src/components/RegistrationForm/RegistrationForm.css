@@ -21,30 +21,13 @@
 .interests {
   width: 100%;
 }
-.Input {
-  color: black;
-  width: 100%;
-  height: 2em;
-  background-color: transparent;
-  border: 0px;
-  border-bottom: 1px solid black;
-}
 
-button {
-  display: block;
-  padding: 10px 30px;
-  border: none;
-  width: 170px;
-  background: none;
-  color: black;
-  position: relative;
-  text-transform: uppercase;
-  z-index: 1;
-  border: 3px solid #ef8b80;
-  font-family: "Poppins", sans-serif;
-  background-color: #ef8b80;
+@media (min-width: 768px) {
+  .RegistrationForm {
+    width: 65%;
+    margin: 2em 4em 10em 8em;
+  }
 }
-
 @media (min-width: 1200px) {
   .Register {
     display: grid;
@@ -77,6 +60,7 @@ button {
     color: black;
     width: 100%;
     height: 2em;
+    border-radius: 3px;
     background-color: transparent;
     border: 0px;
     border-bottom: 1px solid black;

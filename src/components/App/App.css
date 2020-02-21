@@ -20,7 +20,6 @@ body {
   font-size: 16px;
   text-align: center;
   line-height: 1.5;
-  /* background-color: #90b6cd; */
   background-repeat: no-repeat;
   background-size: cover;
   background: url("https://images.unsplash.com/photo-1506784693919-ef06d93c28d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
@@ -28,12 +27,6 @@ body {
 
 header {
   padding: 15px 15px;
-}
-/*this guy is lost*/
-.categories {
-  margin-top: 15px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .fade-enter {

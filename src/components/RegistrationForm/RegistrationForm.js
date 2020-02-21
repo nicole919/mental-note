@@ -40,7 +40,6 @@ export default class RegistrationForm extends Component {
       .then(data => {
         localStorage.setItem("token", data.authToken);
         this.setState({ isLoggedIn: true });
-        console.log(this.props);
       })
       .catch(error => {
         this.setState({ error });
@@ -48,7 +47,6 @@ export default class RegistrationForm extends Component {
   };
 
   onChange = e => {
-    console.log(e.target.name);
     this.setState({ [e.target.name]: e.target.value });
   };
   render() {

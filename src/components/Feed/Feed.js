@@ -58,7 +58,6 @@ export default class Feed extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ notes: data });
       })
       .catch(error => {
@@ -78,9 +77,9 @@ export default class Feed extends Component {
         <div className="FeedGrid2">
           <h1 className>Mental Note Feed</h1>{" "}
           <p className="formDescriptionParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            faucibus nisl tincidunt eget nullam.{" "}
+            See what everyone else is adding to their lists. If you want to
+            suggest something to someone else, simply click on the user to see
+            their profile and add your personalized suggestion.{" "}
           </p>
         </div>
       </div>

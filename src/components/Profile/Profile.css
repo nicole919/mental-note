@@ -1,26 +1,34 @@
 .Profile {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
+  display: flex;
   color: white;
+  justify-content: center;
 }
-
 .ProfilePicture {
   margin-top: 10%;
 }
 .Profile-Img {
   border-radius: 50%;
 }
+@media (min-width: 1200px) {
+  .Profile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    color: white;
+  }
+  .ProfilePicture {
+    margin-left: 25%;
+  }
+  h4 a {
+    font-size: 1.4em;
+    text-decoration: none;
+    border-bottom: 0.8px solid #ef8b80;
+    box-shadow: inset 0 -2px 0 #ef8b80;
+    color: inherit;
+    transition: background 0.1s cubic-bezier(0.33, 0.66, 0.66, 1);
+  }
 
-h4 a {
-  font-size: 1.4em;
-  text-decoration: none;
-  border-bottom: 0.8px solid #ef8b80;
-  box-shadow: inset 0 -2px 0 #ef8b80;
-  color: inherit;
-  transition: background 0.1s cubic-bezier(0.33, 0.66, 0.66, 1);
-}
-
-h4 a:hover {
-  background: #ef8b80;
+  h4 a:hover {
+    background: #ef8b80;
+  }
 }

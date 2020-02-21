@@ -105,7 +105,6 @@ export default class CreateNote extends Component {
       note.user_id = this.props.match.params.id;
       note.suggesting_user_id = getUserId().user_id;
     }
-    console.log(this.props);
 
     fetch(`${config.API_ENDPOINT}/notes`, {
       method: "POST",
@@ -125,7 +124,6 @@ export default class CreateNote extends Component {
       })
       .then(data => {
         this.context.addNote(data);
-        console.log(data);
         this.setState({ routeToNoteList: true });
       })
       .catch(error => {
@@ -139,11 +137,7 @@ export default class CreateNote extends Component {
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}
         <div className="CreateANote">
           <h1 className="formPageHeader">Create a note</h1>{" "}
-          <p className="formDescriptionParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            faucibus nisl tincidunt eget nullam.{" "}
-          </p>
+          <p className="formDescriptionParagraph"> </p>
         </div>
         <form
           className="CreateNoteForm"
