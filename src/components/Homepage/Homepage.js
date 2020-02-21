@@ -64,6 +64,10 @@ export default class Homepage extends Component {
         <footer>
           <p> Mental Note is currently in beta mode</p>
           <p>
+            If you do not wish to create a login for Mental Note but wish to see
+            how it works, login with username: testuser1 password: 1234abcd
+          </p>
+          <p>
             Created with <img className="heart" src={Heart} alt="heart" /> by{" "}
             <a href="https://nicole-portfolio.now.sh/">Nicole</a>
           </p>
