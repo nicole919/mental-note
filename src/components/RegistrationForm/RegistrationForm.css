@@ -22,9 +22,15 @@
   width: 100%;
 }
 
+@media (min-width: 320px) and (max-width: 360px) {
+  .RegistrationForm {
+    padding: 2em 3em 10em;
+  }
+}
 @media (min-width: 768px) {
   .RegistrationForm {
     width: 65%;
+    height: 50vh;
     margin: 2em 4em 10em 8em;
   }
 }

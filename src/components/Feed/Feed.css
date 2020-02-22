@@ -34,6 +34,11 @@
   color: white;
 }
 
+@media (min-width: 320px) and (max-width: 360px) {
+  .feedBox {
+    font-size: 11px;
+  }
+}
 @media (min-width: 768px) {
   .feedInfo {
     width: 60%;

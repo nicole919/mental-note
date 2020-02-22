@@ -61,9 +61,8 @@ export default class LoginForm extends Component {
         <div className="WelcomeBack">
           <h1 className="formTitle">Welcome back!</h1>
           <p className="formDescriptionParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            faucibus nisl tincidunt eget nullam.{" "}
+            Ready to add something new? Or maybe you want to suggest something
+            to your friends? Let's do it!{" "}
           </p>
         </div>
         <form

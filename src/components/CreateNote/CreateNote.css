@@ -33,17 +33,31 @@
 .category {
   margin-top: 2em;
 }
+
+@media (min-width: 320px) and (max-width: 360px) {
+  .CreateNoteForm {
+    padding: 2em 2em 2em;
+  }
+  .category {
+    margin-top: 1em;
+  }
+}
+@media (min-width: 360px) {
+  .CreateNoteForm {
+    padding: 2em 2em 8em;
+  }
+}
 @media (min-width: 728px) {
   .CreateNoteForm {
     width: 60%;
-    height: 65vh;
+    height: 50vh;
     margin: 0em 0em 2em 10em;
   }
 }
 
 @media (min-width: 1024px) {
   .CreateNoteForm {
-    height: 50vh;
+    height: 35vh;
     margin: 0em 0em 2em 12em;
   }
 }

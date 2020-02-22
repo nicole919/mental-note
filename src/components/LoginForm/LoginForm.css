@@ -60,10 +60,15 @@ button {
   font-family: "Poppins", sans-serif;
   background-color: none;
 }
-
+@media (min-width: 320px) and (max-width: 360px) {
+  .LoginForm {
+    padding: 2em 3em 10em;
+  }
+}
 @media (min-width: 768px) {
   .LoginForm {
     width: 65%;
+    height: 50vh;
     margin: 2em 1em 2em 8em;
   }
 }

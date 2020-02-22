@@ -136,7 +136,7 @@ export default class CreateNote extends Component {
       <div className="NoteCreate">
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}
         <div className="CreateANote">
-          <h1 className="formPageHeader">Create a note</h1>{" "}
+          <h1 className="formTitle">Create a note</h1>{" "}
           <p className="formDescriptionParagraph">
             Making a note is easy! Just add the title and select the category
             you want to place it in. Not required - but you can also put where

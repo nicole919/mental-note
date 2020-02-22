@@ -28,12 +28,14 @@
 @media (min-width: 768px) {
   .CreateListForm {
     width: 60%;
+    height: 50vh;
     margin: 2em 1em 2em 10em;
   }
 }
 @media (min-width: 1024px) {
   .CreateListForm {
     width: 60%;
+    height: 30vh;
     margin: 0em 1em 2em 13em;
   }
 }
