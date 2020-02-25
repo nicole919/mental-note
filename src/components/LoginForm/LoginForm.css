@@ -134,7 +134,7 @@ button {
     border: none;
     width: 170px;
     background-color: none;
-    color: inherit;
+    color: black;
     position: relative;
     text-transform: uppercase;
     z-index: 1;

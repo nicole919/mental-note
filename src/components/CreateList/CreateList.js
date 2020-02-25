@@ -15,6 +15,12 @@ export default class CreateList extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { name } = this.state;
+    const sanitizeName = name.trim();
+    if (!sanitizeName) {
+      this.setState({ error: "Please enter a category name" });
+      return;
+    }
+
     const category = {
       category_name: name
     };
@@ -41,7 +47,7 @@ export default class CreateList extends Component {
   };
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, error: null });
   };
 
   render() {
@@ -51,23 +57,25 @@ export default class CreateList extends Component {
           <div className="text">
             <div className="name">
               <Input
+                required
                 placeholder="category name"
                 name="name"
                 type="text"
-                required
                 id="CreateListForm_name"
                 onChange={this.onChange}
               ></Input>
             </div>
           </div>
+          {this.state.error && (
+            <div className="errorMessage">{this.state.error}</div>
+          )}
           <button type="submit">Create</button>
         </form>
         <div className="CreateACategory">
           <h1 className="formTitle">Add Category</h1>
           <p className="formDescriptionParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            faucibus nisl tincidunt eget nullam.{" "}
+            Can't find the perfect category for your newest Mental Note? Create
+            your own!
           </p>
         </div>
       </div>

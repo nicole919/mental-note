@@ -3,15 +3,18 @@ import { Redirect } from "react-router-dom";
 import { Input } from "../Utils";
 import config from "../../config";
 import { isLoggedIn } from "../../lib/auth";
+import { AuthContext } from "../AuthProvider";
 import "./LoginForm.css";
 
 export default class LoginForm extends Component {
+  static contextType = AuthContext;
   state = {
     user_name: "",
     password: "",
     routeToNoteList: false,
     isLoggedIn: false
   };
+
   constructor(props) {
     super(props);
     if (isLoggedIn()) {
@@ -40,6 +43,7 @@ export default class LoginForm extends Component {
       .then(data => {
         localStorage.setItem("token", data.authToken);
         this.setState({ isLoggedIn: true });
+        this.context.setLoggedIn(true);
       })
       .catch(error => {
         this.setState({ error });

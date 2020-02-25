@@ -3,9 +3,11 @@ import { Input } from "../Utils";
 import { Redirect } from "react-router-dom";
 import config from "../../config";
 import { isLoggedIn } from "../../lib/auth";
+import { AuthContext } from "../AuthProvider";
 import "./RegistrationForm.css";
 
 export default class RegistrationForm extends Component {
+  static contextType = AuthContext;
   state = {
     user_name: "",
     password: "",
@@ -40,6 +42,7 @@ export default class RegistrationForm extends Component {
       .then(data => {
         localStorage.setItem("token", data.authToken);
         this.setState({ isLoggedIn: true });
+        this.context.setLoggedIn(true);
       })
       .catch(error => {
         this.setState({ error });

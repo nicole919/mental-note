@@ -171,7 +171,7 @@ h2 {
   }
 }
 
-.LoginLogout {
+/* .LoginLogout {
   margin: 6em 0em 4em 0em;
   display: flex;
   justify-content: space-around;
@@ -190,13 +190,15 @@ h2 {
 .LoginLogout a:hover {
   border-bottom: 0.8px solid #ef8b80;
   box-shadow: inset 0 -2px 0 #ef8b80;
-}
+} */
 
 .heart {
   width: 18px;
 }
 footer {
   color: white;
+  margin-top: 6em;
+  padding: 0 28%;
 }
 
 @media (max-width: 320px) {

@@ -10,7 +10,9 @@
 .formDescriptionParagraph {
   display: none;
 }
-
+.errorMessage {
+  color: red;
+}
 .CreateListForm {
   display: flex;
   flex-direction: column;

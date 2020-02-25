@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { isLoggedIn } from "../../lib/auth";
 import Heart from "../../heart.svg";
 import "./Homepage.css";
 
@@ -50,17 +48,6 @@ export default class Homepage extends Component {
           </b>
         </div>
 
-        {!isLoggedIn() && (
-          <section className="LoginLogout">
-            <Link to="/RegistrationForm">Sign Up</Link>{" "}
-            <Link to="LoginForm"> Login</Link>
-          </section>
-        )}
-        {isLoggedIn() && (
-          <section className="LoginLogout">
-            <Link to="Logout">Logout</Link>
-          </section>
-        )}
         <footer>
           <p> Mental Note is currently in beta mode</p>
           <p>
