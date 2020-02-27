@@ -132,6 +132,11 @@ export default class CreateNote extends Component {
   }
 
   render() {
+    if (!this.props.isLoggedIn()) {
+      return (
+        <h1 className="errorMessage">You need to login to create a note.</h1>
+      );
+    }
     return (
       <div className="NoteCreate">
         {this.state.routeToNoteList && <Redirect to="/NoteList" />}

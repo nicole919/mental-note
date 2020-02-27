@@ -66,6 +66,9 @@ export default class Feed extends Component {
   }
 
   render() {
+    if (!this.props.isLoggedIn()) {
+      return <h1 className="errorMessage">Please login to see your feed.</h1>;
+    }
     return (
       <div className="Feed">
         {" "}

@@ -56,7 +56,7 @@ export default class LoginForm extends Component {
 
   render() {
     if (this.state.isLoggedIn) {
-      return <Redirect to="/" />;
+      return <Redirect to="/NoteList" />;
     }
 
     return (

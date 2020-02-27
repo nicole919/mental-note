@@ -11,6 +11,7 @@ import Feed from "../Feed/Feed";
 import Nav from "../Nav/Nav";
 import Logout from "../Logout/Logout";
 import AuthProvider from "../AuthProvider";
+import { isLoggedIn } from "../../lib/auth";
 import "./App.css";
 
 export default class App extends Component {
@@ -32,17 +33,33 @@ export default class App extends Component {
                   />
                   <Route path="/loginform" component={LoginForm} />
                   <Route
+                    exact
                     path={["/notelist/category/:categoryId", "/notelist"]}
-                    component={NoteList}
+                    render={props => (
+                      <NoteList {...props} isLoggedIn={isLoggedIn} />
+                    )}
                   />
                   <Route
+                    exact
                     path={["/createnote/:id", "/createnote"]}
-                    component={CreateNote}
+                    render={props => (
+                      <CreateNote {...props} isLoggedIn={isLoggedIn} />
+                    )}
                   />
-                  <Route path="/createlist" component={CreateList} />
+                  <Route
+                    path="/createlist"
+                    render={props => (
+                      <CreateList {...props} isLoggedIn={isLoggedIn} />
+                    )}
+                  />
                   <Route path="/user/:id" component={Profile} />
-                  <Route path="/feed" component={Feed} />
-                  <Route path="/logout" component={Logout} />
+                  <Route
+                    path="/feed"
+                    render={props => (
+                      <Feed {...props} isLoggedIn={isLoggedIn} />
+                    )}
+                  />
+                  <Route exact path="/logout" component={Logout} />
                 </Switch>
               </main>
             )}

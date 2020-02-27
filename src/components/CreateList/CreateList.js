@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { Input } from "../Utils";
 import config from "../../config";
+import { AuthContext } from "../AuthProvider";
 import "./CreateList.css";
 
 export default class CreateList extends Component {
+  static contextType = AuthContext;
   state = {
-    name: ""
+    name: "",
+    isLoggedIn: false
   };
 
   goBack = () => {
@@ -51,6 +55,11 @@ export default class CreateList extends Component {
   };
 
   render() {
+    if (!this.props.isLoggedIn()) {
+      return (
+        <h1 className="errorMessage">Please login to create a new category.</h1>
+      );
+    }
     return (
       <div className="CategoryCreate">
         <form className="CreateListForm" onSubmit={this.handleSubmit}>

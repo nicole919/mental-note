@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Route } from "react-router-dom";
 import Note from "../Note/Note";
 import { getAuthToken } from "../../lib/auth";
 import config from "../../config";
@@ -81,6 +81,10 @@ export default class NoteList extends Component {
   };
 
   render() {
+    if (!this.props.isLoggedIn()) {
+      return <h1 className="errorMessage">You need to see your note list.</h1>;
+    }
+
     return (
       <div className="NoteList">
         <section className="topLinks">
