@@ -51,7 +51,7 @@ export default class LoginForm extends Component {
   };
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, error: null });
   };
 
   render() {
@@ -81,6 +81,7 @@ export default class LoginForm extends Component {
               name="user_name"
               onChange={this.onChange}
               id="LoginForm-email"
+              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
           <div className="password">
@@ -92,8 +93,14 @@ export default class LoginForm extends Component {
               type="password"
               id="LoginForm-password"
               onChange={this.onChange}
+              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
+          {this.state.error && (
+            <div className="errorMessage">
+              username or password is incorrect
+            </div>
+          )}
           <button type="submit">Submit</button>
         </form>
       </div>

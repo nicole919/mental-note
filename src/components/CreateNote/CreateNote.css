@@ -28,18 +28,19 @@
 
 .where {
   width: 100%;
-  margin-top: -2em;
 }
+
 .category {
-  margin-top: 2em;
+  width: 100%;
+}
+
+#category-select {
+  width: 15em;
 }
 
 @media (min-width: 320px) and (max-width: 360px) {
   .CreateNoteForm {
     padding: 2em 2em 2em;
-  }
-  .category {
-    margin-top: 1em;
   }
 }
 @media (min-width: 360px) {
@@ -100,9 +101,5 @@
 
   .where {
     width: 80%;
-    margin-top: -2em;
-  }
-  .category {
-    margin-top: 2em;
   }
 }

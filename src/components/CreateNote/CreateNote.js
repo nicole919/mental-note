@@ -55,7 +55,7 @@ export default class CreateNote extends Component {
   }
 
   updateFormEntry(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value, error: null });
   }
 
   validateEntry(name, value) {
@@ -152,37 +152,32 @@ export default class CreateNote extends Component {
           className="CreateNoteForm"
           onSubmit={event => this.handleSubmit(event)}
         >
-          <div className="text">
-            <div className="name">
-              <Input
-                placeholder="title"
-                name="title"
-                type="text"
-                required
-                id="CreateNoteForm-title"
-                onChange={event => this.updateFormEntry(event)}
-              ></Input>
-            </div>
-            <div className="category">
-              <label htmlFor="category">category</label>
-              <select
-                id="category-select"
-                name="category_id"
-                value={this.state.category_id}
-                onChange={event => this.updateFormEntry(event)}
-              >
-                <option value={null}>...</option>
-                {this.state.categories.map(category => (
-                  <option
-                    key={category.category_id}
-                    value={category.category_id}
-                  >
-                    {category.category_name}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="name">
+            <Input
+              placeholder="title"
+              name="title"
+              type="text"
+              required
+              id="CreateNoteForm-title"
+              onChange={event => this.updateFormEntry(event)}
+            ></Input>
           </div>
+          <div className="category">
+            <select
+              id="category-select"
+              name="category_id"
+              value={this.state.category_id}
+              onChange={event => this.updateFormEntry(event)}
+            >
+              <option value={null}>select category</option>
+              {this.state.categories.map(category => (
+                <option key={category.category_id} value={category.category_id}>
+                  {category.category_name}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div className="where">
             <Input
               placeholder="where can you find it?"
@@ -201,6 +196,9 @@ export default class CreateNote extends Component {
               onChange={event => this.updateFormEntry(event)}
             ></Textarea>
           </div>
+          {this.state.error && (
+            <div className="errorMessage">select a category</div>
+          )}
           <button type="submit" className="button">
             save note
           </button>

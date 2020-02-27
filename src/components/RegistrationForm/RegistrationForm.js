@@ -50,7 +50,7 @@ export default class RegistrationForm extends Component {
   };
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, error: null });
   };
   render() {
     if (this.state.isLoggedIn) {
@@ -68,6 +68,7 @@ export default class RegistrationForm extends Component {
               type="text"
               required
               id="RegistrationForm-name"
+              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
           <div className="password">
@@ -78,6 +79,7 @@ export default class RegistrationForm extends Component {
               onChange={this.onChange}
               required
               id="RegistrationForm-password"
+              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
           <div className="interests">
@@ -87,8 +89,14 @@ export default class RegistrationForm extends Component {
               type="text"
               id="RegistrationForm-interests"
               onChange={this.onChange}
+              required
             ></Input>
           </div>
+          {this.state.error && (
+            <div className="errorMessage">
+              username is taken, please select another
+            </div>
+          )}
           <button type="submit">register</button>
         </form>
         <div className="SignUp">

@@ -37,11 +37,6 @@
   font-family: "Raleway", sans-serif;
 }
 
-#category-select {
-  width: 11em;
-  margin-left: 3px;
-}
-
 .comments {
   display: none;
 }
@@ -117,11 +112,6 @@ button {
     align-items: center;
     margin-bottom: 2em;
     padding: 2em 8em 8em 8em;
-  }
-
-  #category-select {
-    width: 9em;
-    margin-left: 3px;
   }
 
   .comments {
