@@ -36,6 +36,8 @@
 
 #category-select {
   width: 15em;
+  height: 2.3em;
+  border: 1px solid black;
 }
 
 @media (min-width: 320px) and (max-width: 360px) {

@@ -74,18 +74,17 @@ export default class LoginForm extends Component {
           onSubmit={event => this.handleSubmit(event)}
         >
           <div className="email">
-            <label htmlFor="LoginForm-email"> </label>
+            <label className="formLabel">Username </label>
             <Input
               required
               placeholder="username"
               name="user_name"
               onChange={this.onChange}
               id="LoginForm-email"
-              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
           <div className="password">
-            <label htmlFor="LoginForm-password"></label>
+            <label className="formLabel">Password </label>
             <Input
               required
               placeholder="password"
@@ -93,7 +92,6 @@ export default class LoginForm extends Component {
               type="password"
               id="LoginForm-password"
               onChange={this.onChange}
-              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
           {this.state.error && (

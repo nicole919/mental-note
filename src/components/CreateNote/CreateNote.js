@@ -153,8 +153,9 @@ export default class CreateNote extends Component {
           onSubmit={event => this.handleSubmit(event)}
         >
           <div className="name">
+            <label className="formLabel">Title </label>
             <Input
-              placeholder="title"
+              placeholder="what is it?"
               name="title"
               type="text"
               required
@@ -163,6 +164,7 @@ export default class CreateNote extends Component {
             ></Input>
           </div>
           <div className="category">
+            <label className="formLabel">Category </label>
             <select
               id="category-select"
               name="category_id"
@@ -179,6 +181,7 @@ export default class CreateNote extends Component {
           </div>
 
           <div className="where">
+            <label className="formLabel">Where? </label>
             <Input
               placeholder="where can you find it?"
               name="whereat"

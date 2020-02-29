@@ -12,12 +12,19 @@
   align-items: center;
   background-color: #e7dfdb;
   margin: 0em 0em 0em 1em;
-  padding: 2em 4em 10em 4em;
+  padding: 2em 4em 7em 4em;
   height: 70vh;
   width: 90%;
   border-radius: 15px;
 }
-
+.formLabel {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
 .interests {
   width: 100%;
 }
@@ -49,7 +56,7 @@
     align-items: center;
     background-color: #e7dfdb;
     margin: 4em 0em 2em 14em;
-    padding: 2em 4em 10em 4em;
+    padding: 2em 4em 7em 4em;
     height: 70vh;
     width: 60%;
     border-radius: 15px;
@@ -58,9 +65,7 @@
   .name {
     width: 80%;
   }
-  .interests {
-    width: 80%;
-  }
+
   .Input {
     color: black;
     width: 100%;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Input } from "../Utils";
 import config from "../../config";
 import { AuthContext } from "../AuthProvider";
@@ -65,6 +64,7 @@ export default class CreateList extends Component {
         <form className="CreateListForm" onSubmit={this.handleSubmit}>
           <div className="text">
             <div className="name">
+              <label className="formLabel">Category name </label>
               <Input
                 required
                 placeholder="category name"

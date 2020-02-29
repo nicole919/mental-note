@@ -61,17 +61,18 @@ export default class RegistrationForm extends Component {
       <div className="Register">
         <form className="RegistrationForm" onSubmit={this.handleSubmit}>
           <div className="name">
+            <label className="formLabel">Username </label>
             <Input
-              placeholder="desired user name"
+              placeholder="desired username"
               name="user_name"
               onChange={this.onChange}
               type="text"
               required
               id="RegistrationForm-name"
-              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
           <div className="password">
+            <label className="formLabel">Password </label>
             <Input
               placeholder="password"
               name="password"
@@ -79,10 +80,10 @@ export default class RegistrationForm extends Component {
               onChange={this.onChange}
               required
               id="RegistrationForm-password"
-              pattern="[A-Za-z0-9]+"
             ></Input>
           </div>
           <div className="interests">
+            <label className="formLabel">Interests </label>
             <Input
               placeholder="add your interests"
               name="interests"

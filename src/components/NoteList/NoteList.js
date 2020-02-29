@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Link, Route } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Note from "../Note/Note";
 import { getAuthToken } from "../../lib/auth";
 import config from "../../config";
