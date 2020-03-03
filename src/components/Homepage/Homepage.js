@@ -11,8 +11,8 @@ export default class Homepage extends Component {
           <section className="HomePageSection1">
             <h2>Can't keep up with all the things?</h2>
             <p>
-              Mental Note will help you organize the things want to get to but
-              aren't quite ready for yet.
+              Mental Note will help you organize the things you want to get to
+              but aren't quite ready for yet.
             </p>
           </section>
           <section className="HomePageSection2">
@@ -56,7 +56,13 @@ export default class Homepage extends Component {
           </p>
           <p>
             Created with <img className="heart" src={Heart} alt="heart" /> by{" "}
-            <a href="https://nicole-portfolio.now.sh/">Nicole</a>
+            <a
+              href="https://nicole-portfolio.now.sh/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Nicole
+            </a>
           </p>
         </footer>
       </div>

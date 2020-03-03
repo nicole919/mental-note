@@ -131,6 +131,15 @@ export default class CreateNote extends Component {
       });
   }
 
+  determineLengthClass = (value, max) => {
+    if (value.length === max) {
+      return "red";
+    }
+    if (value.length < max && value.length > max * 0.4) {
+      return "yellow";
+    }
+    return "green";
+  };
   render() {
     if (!this.props.isLoggedIn()) {
       return (
@@ -161,7 +170,18 @@ export default class CreateNote extends Component {
               required
               id="CreateNoteForm-title"
               onChange={event => this.updateFormEntry(event)}
-            ></Input>
+              maxlength="25"
+            ></Input>{" "}
+            <div className="notes-length-container">
+              <span
+                className={`notes-length ${this.determineLengthClass(
+                  this.state.title,
+                  25
+                )}`}
+              >
+                {this.state.title.length}/25
+              </span>
+            </div>
           </div>
           <div className="category">
             <label className="formLabel">Category </label>
@@ -188,7 +208,18 @@ export default class CreateNote extends Component {
               type="text"
               id="CreateNoteForm-where"
               onChange={event => this.updateFormEntry(event)}
+              maxlength="255"
             ></Input>
+            <div className="notes-length-container">
+              <span
+                className={`notes-length ${this.determineLengthClass(
+                  this.state.whereat,
+                  255
+                )}`}
+              >
+                {this.state.whereat.length}/255
+              </span>
+            </div>
           </div>
           <div className="comments">
             <Textarea

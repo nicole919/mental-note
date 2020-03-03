@@ -53,6 +53,16 @@ export default class CreateList extends Component {
     this.setState({ [e.target.name]: e.target.value, error: null });
   };
 
+  determineLengthClass = () => {
+    if (this.state.name.length === 25) {
+      return "red";
+    }
+    if (this.state.name.length < 25 && this.state.name.length > 10) {
+      return "yellow";
+    }
+    return "green";
+  };
+
   render() {
     if (!this.props.isLoggedIn()) {
       return (
@@ -72,7 +82,13 @@ export default class CreateList extends Component {
                 type="text"
                 id="CreateListForm_name"
                 onChange={this.onChange}
+                maxlength="25"
               ></Input>
+              <div>
+                <span className={`length ${this.determineLengthClass()}`}>
+                  {this.state.name.length}/25
+                </span>
+              </div>
             </div>
           </div>
           {this.state.error && (

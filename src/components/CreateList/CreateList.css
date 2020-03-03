@@ -14,6 +14,23 @@
 .errorMessage {
   color: red;
 }
+
+.length {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  padding-top: 4px;
+}
+.length.green {
+  color: green;
+}
+
+.length.yellow {
+  color: orange;
+}
+.length.red {
+  color: red;
+}
 .CreateListForm {
   display: flex;
   flex-direction: column;

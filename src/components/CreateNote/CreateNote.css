@@ -40,6 +40,25 @@
   border: 1px solid black;
 }
 
+.notes-length-container {
+  display: flex;
+  justify-content: center;
+}
+.notes-length {
+  text-align: right;
+  width: 15em;
+  font-size: 12px;
+  padding-top: 4px;
+}
+.notes-length.green {
+  color: green;
+}
+.notes-length.yellow {
+  color: orange;
+}
+.notes-length.red {
+  color: red;
+}
 @media (min-width: 320px) and (max-width: 360px) {
   .CreateNoteForm {
     padding: 2em 2em 2em;

@@ -94,9 +94,7 @@ export default class RegistrationForm extends Component {
             ></Input>
           </div>
           {this.state.error && (
-            <div className="errorMessage">
-              username is taken, please select another
-            </div>
+            <div className="errorMessage">{this.state.error.error}</div>
           )}
           <button type="submit">register</button>
         </form>
